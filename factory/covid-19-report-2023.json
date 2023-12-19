@@ -1,0 +1,9 @@
+{
+	"name": "covid-19-report-2023",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "190607f7-ffda-48e7-b41a-b6bb8f533178",
+		"tenantId": "9ddaaca1-389f-4cb1-a113-081be6cc25fc"
+	}
+}
