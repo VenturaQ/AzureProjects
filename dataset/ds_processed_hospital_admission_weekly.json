@@ -1,9 +1,12 @@
 {
-	"name": "ds_hospital_admission_weekly",
+	"name": "ds_processed_hospital_admission_weekly",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adls_covidstoragedatalake2023",
 			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "processed"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
