@@ -11,6 +11,9 @@
 		"ls_adls_covidstoragedatalake2023_accountKey": {
 			"value": ""
 		},
+		"ls_sql_covid_db_connectionString": {
+			"value": ""
+		},
 		"ls_adls_covidstoragedatalake2023_properties_typeProperties_url": {
 			"value": "https://covidstoragedatalake2023.dfs.core.windows.net/"
 		},
