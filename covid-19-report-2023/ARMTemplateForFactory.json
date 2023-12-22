@@ -840,6 +840,9 @@
 					"referenceName": "ls_adls_covidstoragedatalake2023",
 					"type": "LinkedServiceReference"
 				},
+				"folder": {
+					"name": "lookup"
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
@@ -889,6 +892,9 @@
 				"linkedServiceName": {
 					"referenceName": "ls_adls_covidstoragedatalake2023",
 					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "lookup"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -968,6 +974,9 @@
 					"referenceName": "ls_ablob_covidstorage",
 					"type": "LinkedServiceReference"
 				},
+				"folder": {
+					"name": "lookup"
+				},
 				"annotations": [],
 				"type": "Json",
 				"typeProperties": {
@@ -996,6 +1005,9 @@
 					"fileName": {
 						"type": "string"
 					}
+				},
+				"folder": {
+					"name": "raw"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -1043,6 +1055,9 @@
 						"type": "string"
 					}
 				},
+				"folder": {
+					"name": "raw"
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
@@ -1065,34 +1080,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ds_hospital_admission_weekly')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_adls_covidstoragedatalake2023",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "ecdc",
-						"fileSystem": "processed"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_adls_covidstoragedatalake2023')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/ds_population_raw_gz')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1100,6 +1087,9 @@
 				"linkedServiceName": {
 					"referenceName": "ls_ablob_covidstorage",
 					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "raw"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -1131,6 +1121,9 @@
 					"referenceName": "ls_adls_covidstoragedatalake2023",
 					"type": "LinkedServiceReference"
 				},
+				"folder": {
+					"name": "raw"
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
@@ -1159,6 +1152,9 @@
 				"linkedServiceName": {
 					"referenceName": "ls_adls_covidstoragedatalake2023",
 					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "processed"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -1190,11 +1186,45 @@
 					"referenceName": "ls_adls_covidstoragedatalake2023",
 					"type": "LinkedServiceReference"
 				},
+				"folder": {
+					"name": "processed"
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileSystem": "processed"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adls_covidstoragedatalake2023')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_processed_hospital_admission_weekly')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adls_covidstoragedatalake2023",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "processed"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "ecdc",
 						"fileSystem": "processed"
 					},
 					"columnDelimiter": ",",
@@ -1216,6 +1246,9 @@
 				"linkedServiceName": {
 					"referenceName": "ls_adls_covidstoragedatalake2023",
 					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "raw"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -1283,6 +1316,9 @@
 					"referenceName": "ls_adls_covidstoragedatalake2023",
 					"type": "LinkedServiceReference"
 				},
+				"folder": {
+					"name": "raw"
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
@@ -1341,6 +1377,9 @@
 					"referenceName": "ls_sql_covid_db",
 					"type": "LinkedServiceReference"
 				},
+				"folder": {
+					"name": "sql"
+				},
 				"annotations": [],
 				"type": "AzureSqlTable",
 				"schema": [
@@ -1397,6 +1436,9 @@
 				"linkedServiceName": {
 					"referenceName": "ls_sql_covid_db",
 					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "sql"
 				},
 				"annotations": [],
 				"type": "AzureSqlTable",
@@ -1726,7 +1768,7 @@
 						},
 						{
 							"dataset": {
-								"referenceName": "ds_hospital_admission_weekly",
+								"referenceName": "ds_processed_hospital_admission_weekly",
 								"type": "DatasetReference"
 							},
 							"name": "WeeklySink"
@@ -1922,7 +1964,7 @@
 				"[concat(variables('factoryId'), '/datasets/ds_country_lookup')]",
 				"[concat(variables('factoryId'), '/datasets/ds_dim_date_lookup')]",
 				"[concat(variables('factoryId'), '/datasets/ds_processed_hospital_admission_daily')]",
-				"[concat(variables('factoryId'), '/datasets/ds_hospital_admission_weekly')]"
+				"[concat(variables('factoryId'), '/datasets/ds_processed_hospital_admission_weekly')]"
 			]
 		}
 	]

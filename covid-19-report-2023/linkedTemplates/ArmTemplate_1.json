@@ -714,7 +714,7 @@
 						},
 						{
 							"dataset": {
-								"referenceName": "ds_hospital_admission_weekly",
+								"referenceName": "ds_processed_hospital_admission_weekly",
 								"type": "DatasetReference"
 							},
 							"name": "WeeklySink"
